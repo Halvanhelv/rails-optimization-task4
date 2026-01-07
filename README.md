@@ -1,30 +1,30 @@
-# Задание №4
+# Task #4
 
-## Цели выполнения задания
+## Goals of completing the task
 
-- Попрактиковаться в настройке мониторинга
-- Попрактиковаться в поиске возможностей для оптимизации
-- Попрактиковаться в проверке гипотез и обосновании предложений по оптимизации
-- Познакомиться с интересным живым `Rails` `open-source` проектом
+- Practice setting up monitoring
+- Practice finding optimization opportunities
+- Practice testing hypotheses and justifying optimization proposals
+- Get familiar with an interesting live `Rails` `open-source` project
 
-## Подготовка
+## Preparation
 
-- Завести `dev.to` локально (прямо в этом репозитории, не нужно клонировать `dev.to` от них, иначе будут отличаться версии)
-- Настроить свой `NewRelic` для мониторинга локального `dev.to`
-- Настроить свой `Skylight` / `Scout` / `Datadog` для мониторинга локального dev.to
-- Настроить свой `Prometheus` + `Grafana` для мониторинга локального `dev.to`
-- Настроить `rack-mini-profiler`
-- Настроить `rails-panel`
-- Сделать возможность запуска проекта в `local_production`
+- Set up `dev.to` locally (right in this repository, don't clone `dev.to` from them, otherwise versions will differ)
+- Set up your `NewRelic` for monitoring local `dev.to`
+- Set up your `Skylight` / `Scout` / `Datadog` for monitoring local dev.to
+- Set up your `Prometheus` + `Grafana` for monitoring local `dev.to`
+- Set up `rack-mini-profiler`
+- Set up `rails-panel`
+- Enable running the project in `local_production`
 
 ### local_production
 
-Можно либо
+You can either
 
-- сделать новый `environment`, `local_production`
-- использовать `production`, но найти способ переопределить нужные настройки локально
+- create a new `environment`, `local_production`
+- use `production`, but find a way to override necessary settings locally
 
-Основное, что должно отличать ваш `local_production` от `development`:
+The main things that should distinguish your `local_production` from `development`:
 
 - `cache_classes: true`
 - `eager_load: true`
@@ -32,30 +32,30 @@
 - `assets_debug: false`
 - `assets_compile: false`
 
-Для работы потребуется прекомпиляция ассетов `rake assets:precompile`
+Asset precompilation will be required for work `rake assets:precompile`
 
-## Оптимизация
+## Optimization
 
-Все инструменты мониторинга показывают, что самой горячей точкой является главная страница, `StoriesController#index`.
+All monitoring tools show that the hottest spot is the main page, `StoriesController#index`.
 
-В частности, заметное время занимает рендеринг `partial`-ов `_single_story.html.erb`.
+In particular, rendering of `partial`s `_single_story.html.erb` takes noticeable time.
 
-Рассмотрите гипотезу о том, что можно закешировать `<%= render "articles/single_story", story: story %>` в `_main_stories_feed.html.erb` и это даст заметный эффект.
+Consider the hypothesis that caching `<%= render "articles/single_story", story: story %>` in `_main_stories_feed.html.erb` can give a noticeable effect.
 
-- Не забудьте включить локальное кэширование (`touch tmp/caching-dev.txt`)
-- Сделайте `benchmark` с помощью `ab`
-- Сделайте оптимизацию
-- Перезапустите `benchmark`
+- Don't forget to enable local caching (`touch tmp/caching-dev.txt`)
+- Make a `benchmark` using `ab`
+- Make the optimization
+- Re-run the `benchmark`
 
-Если вы посчитаете, что применить кэширование здесь целесообразно, оформите обоснованный `PR` с этим предложением. Напишите в описании `PR`, какая была гипотеза, откуда она взялась, как вы проверяли гипотезу, какие результаты получили. Приложите скриншоты графиков мониторинга, если на них виден эффект оптимизации.
+If you consider it appropriate to apply caching here, create a justified `PR` with this proposal. Write in the `PR` description what the hypothesis was, where it came from, how you tested the hypothesis, what results you got. Attach screenshots of monitoring graphs if the optimization effect is visible on them.
 
 ## Bonus
 
-Поищите возможности для оптимизации самостоятельно. Если сможете что-то найти и оптимизировать, добавляйте в `PR` ваши оптимизации с обоснованиями.
+Look for optimization opportunities yourself. If you can find and optimize something, add your optimizations with justifications to the `PR`.
 
-## Сдача задания
+## Submitting the task
 
-`PR` в этот репозиторий с кодом и подробным описанием проделанной работы в описании `PR`-а.
+`PR` to this repository with code and detailed description of work done in the `PR` description.
 
 <div align="center">
   <br>
@@ -64,7 +64,7 @@
     src="https://thepracticaldev.s3.amazonaws.com/i/ro3538by3b2fupbs63sr.png"
     width=500px
   />
-  <h1>DEV Community 👩‍💻👨‍💻</h1>
+  <h1>DEV Community</h1>
   <strong>The Human Layer of the Stack</strong>
 </div>
 <br/>
@@ -96,7 +96,7 @@ Welcome to the [dev.to](https://dev.to) codebase. We are so excited to have you.
 
 ## What is dev.to?
 
-[dev.to](https://dev.to) (or just DEV) is a platform where software developers write articles, take part in discussions, and build their professional profiles. We value supportive and constructive dialogue in the pursuit of great code and career growth for all members. The ecosystem spans from beginner to advanced developers, and all are welcome to find their place within our community. ❤️
+[dev.to](https://dev.to) (or just DEV) is a platform where software developers write articles, take part in discussions, and build their professional profiles. We value supportive and constructive dialogue in the pursuit of great code and career growth for all members. The ecosystem spans from beginner to advanced developers, and all are welcome to find their place within our community.
 
 ## Table of Contents
 
@@ -141,7 +141,7 @@ When in doubt, ask a [core team member](#core-team)! You can mention us in any i
 2.  Create a branch, naming it either a feature or bug: `git checkout -b feature/that-new-feature` or `bug/fixing-that-bug`
 3.  Code and commit your changes. Bonus points if you write a [good commit message](https://chris.beams.io/posts/git-commit/): `git commit -m 'Add some feature'`
 4.  Push to the branch: `git push origin feature/that-new-feature`
-5.  [Create a pull request](#create-a-pull-request) for your branch 🎉
+5.  [Create a pull request](#create-a-pull-request) for your branch
 
 Note: be sure to [maintain your fork](https://docs.dev.to/maintaining-your-fork)!
 
@@ -171,11 +171,11 @@ _Please note: all commits in a pull request will be squashed when merged, but wh
 
 Whether you are stuck with feature implementation, first-time setup, or you just want to tell us something could be done better, check out our [OSS thread](https://dev.to/devteam/devto-open-source-helpdiscussion-thread-v0-1l45) or create an issue. You can also mention any [core team member](#core-team) in an issue and we'll respond as soon as possible.
 
-### 👉 [OSS Help/Discussion Thread](https://dev.to/devteam/devto-open-source-helpdiscussion-thread-v0-1l45) 👈
+### [OSS Help/Discussion Thread](https://dev.to/devteam/devto-open-source-helpdiscussion-thread-v0-1l45)
 
 ### The bottom line
 
-We are all humans trying to work together to improve the community. Always be kind and appreciate the need for tradeoffs. ❤️
+We are all humans trying to work together to improve the community. Always be kind and appreciate the need for tradeoffs.
 
 ## Codebase
 
@@ -253,7 +253,7 @@ Our docker implementation is incomplete and may not work smoothly. Please kindly
 We're mostly a Rails app, with a bit of Webpack sprinkled in. **For most cases, simply running `bin/rails server` will do.** If you're working with Webpack though, you'll need to run the following:
 
 - Run **`bin/startup`** to start the server, Webpack, and our job runner `delayed_job`. `bin/startup` runs `foreman start -f Procfile.dev` under the hood.
-- `alias start="bin/startup"` makes this even faster. 😊
+- `alias start="bin/startup"` makes this even faster.
 - If you're using **`pry`** for debugging in Rails, note that using `foreman` and `pry` together works, but it's not as clean as `bin/rails server`.
 
 Here are some singleton commands you may need, usually in a separate instance/tab of your shell.
@@ -317,5 +317,5 @@ Any questions, please refer to our [license FAQ](http://docs.dev.to/license-faq/
     src="https://thepracticaldev.s3.amazonaws.com/uploads/user/profile_image/31047/af153cd6-9994-4a68-83f4-8ddf3e13f0bf.jpg"
   />
   <br/>
-  <strong>Happy Coding</strong> ❤️
+  <strong>Happy Coding</strong>
 </p>

@@ -1,40 +1,40 @@
 ### 1.1 `Gemfile`
 
-поправил часть путей в `Gemfile` так как они были неактуальны
+fixed some paths in `Gemfile` as they were outdated
 
 ### 2 Algolia
 
-Создал аккаунт и настроил ключи, проблем не возникло
+Created an account and configured keys, no issues occurred
 
 ## 3. NewRelic
 
-Настроил NewRelic, с помощью гема все настроилось быстро и легко
+Set up NewRelic, everything was configured quickly and easily with the gem
 
 ## 4. Skylight
 
-Настроил Skylight, все прошло без проблем
+Set up Skylight, everything went smoothly
 
 ## 5. Prometheus + Grafana
 
-Пришлось немного повозиться так как с docker особо не работал и у него есть свои особенности
+Had to tinker a bit since I hadn't worked much with docker and it has its own quirks
 
 ## 6. rack-mini-profiler
 
-ранее уже подключал, проблем не возникло
+had already connected it before, no issues occurred
 
 ## 7. local_production
 
-## 8. Проверил через new relic и skylight и самый медленным действительно оказался StoriesController#index
+## 8. Checked via new relic and skylight and StoriesController#index indeed turned out to be the slowest
 
-изначально скорость загрузки составила:
+initial loading speed was:
 
 [<img src="https://i.ibb.co/mFbQfLD/2021-05-15-20-06.png">](https://i.ibb.co/mFbQfLD/2021-05-15-20-06.png/)
 [<img src="https://i.ibb.co/yqkKNHs/2021-05-15-19-47-1.png">](https://i.ibb.co/yqkKNHs/2021-05-15-19-47-1.png/)
 
-После кэширования проблемного паршиала время сократилось до:
+After caching the problematic partial, the time was reduced to:
 [<img src="https://i.ibb.co/P6FGSsj/2021-05-15-20-10.png">](https://i.ibb.co/P6FGSsj/2021-05-15-20-10.png/)
 [<img src="https://i.ibb.co/M9ptzWr/2021-05-15-19-54.png">](https://i.ibb.co/M9ptzWr/2021-05-15-19-54.png)
 
-touch: true не использовал так как в проекте используется counter_culture
+didn't use touch: true since counter_culture is used in the project
 
-На бонус не хватило времени
+Didn't have time for the bonus
